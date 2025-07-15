@@ -1,0 +1,27 @@
+{
+  "resources/css/app.css": {
+    "file": "assets/app-B2gJ75Tw.css",
+    "src": "resources/css/app.css",
+    "isEntry": true
+  },
+  "resources/css/slider.css": {
+    "file": "assets/slider-DQzhrYEc.css",
+    "src": "resources/css/slider.css",
+    "isEntry": true
+  },
+  "resources/js/app.js": {
+    "file": "assets/app-C4TxDELU.js",
+    "name": "app",
+    "src": "resources/js/app.js",
+    "isEntry": true,
+    "imports": [
+      "resources/js/slider.js"
+    ]
+  },
+  "resources/js/slider.js": {
+    "file": "assets/slider-B5j_Jlul.js",
+    "name": "slider",
+    "src": "resources/js/slider.js",
+    "isEntry": true
+  }
+}

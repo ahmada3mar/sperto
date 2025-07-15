@@ -39,7 +39,7 @@ window.addToCart = function (productId, productName, productPrice, productImage)
     showMessageBox(`<span class='font-bold'>${productName}</span> added to cart!`, 'success'); // Use Toastify for success
     updateCartCount();
     renderCartAside(); // Update cart aside content
-    showCartAside(); // Show the cart aside after adding
+    // showCartAside(); // Show the cart aside after adding
 };
 
 // Remove item from cart
@@ -138,7 +138,7 @@ window.showMessageBox = function (message, type = 'info') {
     }
 
     // Create a temporary div element to parse the HTML string into a DOM node
-    const messageNode = document.createElement('div');
+    const messageNode = document.createElement('span');
     messageNode.innerHTML = message;
 
     Toastify({

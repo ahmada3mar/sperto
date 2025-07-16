@@ -38,10 +38,10 @@
         </div>
 
         {{-- Navigation Buttons --}}
-        <button id="category-prev-btn" class="cursor-pointer text-md absolute top-1/2 -translate-y-1/2 left-0 text-gray-800 bg-opacity-50  p-2 rounded-full  hover:bg-opacity-75 transition-all-ease hidden md:block">
+        <button id="category-prev-btn" class="cursor-pointer text-md absolute top-1/2 -translate-y-10 left-0 text-gray-800 bg-opacity-50  p-2 rounded-full  hover:bg-opacity-75 transition-all-ease hidden md:block">
             &#10094;
         </button>
-        <button id="category-next-btn" class="cursor-pointer text-md absolute top-1/2 -translate-y-1/2 right-0 text-gray-800 bg-opacity-50  p-2 rounded-full  hover:bg-opacity-75 transition-all-ease hidden md:block">
+        <button id="category-next-btn" class="cursor-pointer text-md absolute top-1/2 -translate-y-10 right-0 text-gray-800 bg-opacity-50  p-2 rounded-full  hover:bg-opacity-75 transition-all-ease hidden md:block">
             &#10095;
         </button>
 

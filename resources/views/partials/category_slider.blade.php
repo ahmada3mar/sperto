@@ -28,7 +28,7 @@
             @endphp
 
             @foreach ($categories as $category)
-                <div class="category-item flex-shrink-0 w-1/2 sm:w-1/3 md:w-1/4 lg:w-1/5 xl:w-1/6 p-2 flex flex-col items-center text-center">
+                <div class="category-item flex-shrink-0 w-1/3 sm:w-1/4 md:w-1/5 lg:w-1/6 xl:w-1/7 p-2 flex flex-col items-center text-center">
                     <a href="#" class="block w-24 h-24 rounded-full overflow-hidden  hover:border-primary-700 transition-all-ease">
                         <img src="{{ $category['image'] }}" alt="{{ $category['name'] }}" class="w-full h-full object-cover">
                     </a>

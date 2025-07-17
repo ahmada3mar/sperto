@@ -13,8 +13,8 @@
                             <input class="hidden peer" type="radio" name="delivery_method" id="delivery" checked>
                             <label for="delivery"
                                 class="flex flex-1 cursor-pointer relative justify-center items-center flex-col p-2 md:p-4 rounded-md border border-gray-200
-                                peer-checked:border-primary-500 delivery peer-checked:bg-primary-50 gap-1 md:gap-2
-                                hover:bg-gray-50 hover:border-primary-200 transition-all duration-200 ease-in-out">
+                                peer-checked:border-primary-500! delivery peer-checked:bg-primary-50 gap-1 md:gap-2
+                                hover:bg-primary-50 hover:border-primary-200 transition-all duration-200 ease-in-out">
                                 <i class="fa-solid fa-truck-moving text-md md:text-xl text-gray-700 peer-checked:text-primary-600"></i>
                                 <p class="text-gray-700 text-sm md:text-md peer-checked:text-primary-600">Delivery</p>
                             </label>
@@ -23,8 +23,8 @@
                             <input class="hidden peer" type="radio" name="delivery_method" id="pickup">
                             <label for="pickup"
                                 class="flex flex-1 cursor-pointer relative justify-center items-center flex-col p-2 md:p-4 rounded-md border border-gray-200
-                                peer-checked:border-primary-500 delivery peer-checked:bg-primary-50 gap-1 md:gap-2
-                                hover:bg-gray-50 hover:border-primary-200 transition-all duration-200 ease-in-out">
+                                peer-checked:border-primary-500! delivery peer-checked:bg-primary-50 gap-1 md:gap-2
+                                hover:bg-primary-50 hover:border-primary-200 transition-all duration-200 ease-in-out">
                                 <i class="fa-solid fa-cube text-md md:text-xl text-gray-700 peer-checked:text-primary-600"></i>
                                 <p class="text-gray-700 text-sm md:text-md peer-checked:text-primary-600">Pickup</p>
                             </label>
@@ -34,19 +34,19 @@
                     <div>
                         <label for="full-name" class="block text-gray-700 text-sm font-bold mb-2">Full Name</label>
                         <input type="text" id="full-name"
-                            class="appearance-none border border-gray-300 rounded-md w-full py-3 px-4 text-gray-700 leading-tight focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent transition-all duration-200 ease-in-out"
+                            class="appearance-none border border-gray-300 rounded-md w-full py-3 px-4 text-gray-700 leading-tight focus:outline-none focus:ring-1 focus:ring-primary-500 focus:border-transparent transition-all duration-200 ease-in-out"
                             placeholder="Ahmad E'mar" required>
                     </div>
                     <div>
                         <label for="email" class="block text-gray-700 text-sm font-bold mb-2">E-Mail</label>
                         <input type="email" id="email"
-                            class="appearance-none border border-gray-300 rounded-md w-full py-3 px-4 text-gray-700 leading-tight focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent transition-all duration-200 ease-in-out"
+                            class="appearance-none border border-gray-300 rounded-md w-full py-3 px-4 text-gray-700 leading-tight focus:outline-none focus:ring-1 focus:ring-primary-500 focus:border-transparent transition-all duration-200 ease-in-out"
                             placeholder="someone@example.com" required>
                     </div>
                     <div>
                         <label for="mobile" class="block text-gray-700 text-sm font-bold mb-2">Mobile</label>
                         <input type="tel" id="mobile"
-                            class="appearance-none border border-gray-300 rounded-md w-full py-3 px-4 text-gray-700 leading-tight focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent transition-all duration-200 ease-in-out"
+                            class="appearance-none border border-gray-300 rounded-md w-full py-3 px-4 text-gray-700 leading-tight focus:outline-none focus:ring-1 focus:ring-primary-500 focus:border-transparent transition-all duration-200 ease-in-out"
                             placeholder="07XXXXXXXX" required>
                     </div>
 
@@ -54,7 +54,7 @@
                         <div>
                             <label for="city" class="block text-gray-700 text-sm font-bold mb-2">City</label>
                             <select id="city"
-                                class="appearance-none border border-gray-300 rounded-md w-full py-3 px-4 text-gray-700 leading-tight focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent transition-all duration-200 ease-in-out"
+                                class="appearance-none border border-gray-300 rounded-md w-full py-3 px-4 text-gray-700 leading-tight focus:outline-none focus:ring-1 focus:ring-primary-500 focus:border-transparent transition-all duration-200 ease-in-out"
                                 required>
                                 <option value="">Select City</option>
                                 <option>Amman</option>
@@ -65,7 +65,7 @@
                         <div>
                             <label for="area" class="block text-gray-700 text-sm font-bold mb-2">Area</label>
                             <select id="area"
-                                class="appearance-none border border-gray-300 rounded-md w-full py-3 px-4 text-gray-700 leading-tight focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent transition-all duration-200 ease-in-out"
+                                class="appearance-none border border-gray-300 rounded-md w-full py-3 px-4 text-gray-700 leading-tight focus:outline-none focus:ring-1 focus:ring-primary-500 focus:border-transparent transition-all duration-200 ease-in-out"
                                 required>
                                 <option value="">Select Area</option>
                                 <option>Al Jabdaweel</option>
@@ -76,14 +76,14 @@
                         <div>
                             <label for="building" class="block text-gray-700 text-sm font-bold mb-2">Building</label>
                             <input type="text" id="building"
-                                class="appearance-none border border-gray-300 rounded-md w-full py-3 px-4 text-gray-700 leading-tight focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent transition-all duration-200 ease-in-out"
+                                class="appearance-none border border-gray-300 rounded-md w-full py-3 px-4 text-gray-700 leading-tight focus:outline-none focus:ring-1 focus:ring-primary-500 focus:border-transparent transition-all duration-200 ease-in-out"
                                 placeholder="Building" required>
                         </div>
                     </div>
                     <div>
                         <label for="address" class="block text-gray-700 text-sm font-bold mb-2">Address</label>
                         <input type="text" id="address"
-                            class="appearance-none border border-gray-300 rounded-md w-full py-3 px-4 text-gray-700 leading-tight focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent transition-all duration-200 ease-in-out"
+                            class="appearance-none border border-gray-300 rounded-md w-full py-3 px-4 text-gray-700 leading-tight focus:outline-none focus:ring-1 focus:ring-primary-500 focus:border-transparent transition-all duration-200 ease-in-out"
                             placeholder="Street Name, Apt/Suite, etc." required>
                     </div>
                 </form>
@@ -122,28 +122,28 @@
                             <input class="hidden peer" type="radio" name="payment_method" id="credit-card" checked>
                             <label for="credit-card"
                                 class="flex flex-1 cursor-pointer relative justify-center items-center flex-col p-2 md:p-4 rounded-md border border-gray-200
-                                peer-checked:border-primary-500 delivery peer-checked:bg-primary-50 gap-1 md:gap-2
-                                hover:bg-gray-50 hover:border-primary-200 transition-all duration-200 ease-in-out">
+                                peer-checked:border-primary-500! delivery peer-checked:bg-primary-50 gap-1 md:gap-2
+                                hover:bg-primary-50 hover:border-primary-200 transition-all duration-200 ease-in-out">
                                 <i class="fa-solid fa-credit-card text-md md:text-xl text-gray-700 peer-checked:text-primary-600"></i>
                                 <p class="text-gray-700 text-sm md:text-md peer-checked:text-primary-600">Credit Card</p>
                             </label>
                         </div>
                         <div class="flex flex-1">
-                            <input class="hidden peer" type="radio" name="payment_method" id="CliQ">
-                            <label for="CliQ"
+                            <input class="hidden peer" type="radio" name="payment_method" id="cliq">
+                            <label for="cliq"
                                 class="flex flex-1 cursor-pointer relative justify-center items-center flex-col p-2 md:p-4 rounded-md border border-gray-200
-                                peer-checked:border-primary-500 delivery peer-checked:bg-primary-50 gap-1 md:gap-2
-                                hover:bg-gray-50 hover:border-primary-200 transition-all duration-200 ease-in-out">
+                                peer-checked:border-primary-500! delivery peer-checked:bg-primary-50 gap-1 md:gap-2
+                                hover:bg-primary-50 hover:border-primary-200 transition-all duration-200 ease-in-out">
                                 <i class="fa-solid fa-comments-dollar text-md md:text-xl text-gray-700 peer-checked:text-primary-600"></i>
                                 <p class="text-gray-700 text-sm md:text-md peer-checked:text-primary-600">CliQ</p>
                             </label>
                         </div>
                         <div class="flex flex-1">
-                            <input class="hidden peer" type="radio" name="payment_method" id="Cash">
-                            <label for="Cash"
+                            <input class="hidden peer" type="radio" name="payment_method" id="cash">
+                            <label for="cash"
                                 class="flex flex-1 cursor-pointer relative justify-center items-center flex-col p-2 md:p-4 rounded-md border border-gray-200
-                                peer-checked:border-primary-500 delivery peer-checked:bg-primary-50 gap-1 md:gap-2
-                                hover:bg-gray-50 hover:border-primary-200 transition-all duration-200 ease-in-out">
+                                peer-checked:border-primary-500! delivery peer-checked:bg-primary-50 gap-1 md:gap-2
+                                hover:bg-primary-50 hover:border-primary-200 transition-all duration-200 ease-in-out">
                                 <i class="fa-solid fa-money-bill-wave text-md md:text-xl text-gray-700 peer-checked:text-primary-600"></i>
                                 <p class="text-gray-700 text-sm md:text-md peer-checked:text-primary-600">Cash</p>
                             </label>
@@ -153,8 +153,8 @@
                     <div class="mt-8 text-right">
                         <button type="submit"
                             class="bg-primary-500 hover:bg-primary-700 text-white
-                            font-bold py-3 px-8 rounded-md shadow-lg transition-all duration-200 ease-in-out
-                            focus:outline-none focus:ring-2 focus:ring-primary-500 focus:ring-opacity-75"
+                            font-bold py-3 px-10 rounded-md  transition-all duration-200 ease-in-out
+                            focus:outline-none focus:ring-1 focus:ring-primary-500 focus:ring-opacity-75"
                             onclick="placeOrder(); return false;">
                             Place Order <i class="fas fa-check-circle ml-2"></i>
                         </button>

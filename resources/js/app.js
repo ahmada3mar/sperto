@@ -27,6 +27,8 @@ let scrollPosition = 0; // To store scroll position when overlays are open
  */
 function saveCart() {
     localStorage.setItem('cart', JSON.stringify(cart));
+    // Dispatch a custom event after saving the cart
+    document.dispatchEvent(new CustomEvent('cartUpdated'));
 }
 
 /**
@@ -45,11 +47,14 @@ function updateCartCount() {
 function showMessageBox(message, type = 'info') {
     let backgroundColor = '';
     if (type === 'success') {
-        backgroundColor = 'linear-gradient(to right, #28a745, #218838)'; // Green
+        // Aligns with primary-500 and a slightly darker shade for success
+        backgroundColor = 'linear-gradient(to right, #4CAF50, #4CAF50)'; // Green for success
     } else if (type === 'error') {
-        backgroundColor = 'linear-gradient(to right, #dc3545, #c82333)'; // Red
+        // Aligns with red-500 from your theme
+        backgroundColor = 'linear-gradient(to right, #EF4444, #DC2626)'; // Tailwind red-500 to red-700
     } else { // default info
-        backgroundColor = 'linear-gradient(to right, #007bff, #0056b3)'; // Blue
+        // Aligns with your primary-500 theme color for general info
+        backgroundColor = 'linear-gradient(to right, #F59E0B, #D97706)'; // Tailwind amber-500 to amber-700 for info
     }
 
     const messageNode = document.createElement('span');
@@ -92,20 +97,22 @@ function renderCartAside() {
                 <li class="flex p-6 justify-between  items-center py-4 gap-5 w-full">
                     <div class='flex items-center gap-2'>
                         <img src="${item.image}" alt="${item.name}" class="w-16 h-16 object-cover rounded-md mr-4">
-                        <div class="">
+                        <div class="flex flex-col gap-2">
                             <h3 class="text-md text-gray-800 text-md line-clamp-2">${item.name}</h3>
-                            <div class="inline-flex items-center space-x-2 border border-gray-400 ">
-                                <button class="hover:bg-gray-300 text-gray-800 font-bold py-1 px-2 text-sm transition-all-ease" data-product-id="${item.id}" data-change="-1">-</button>
-                                <span class="text-md ">${item.quantity}</span>
-                                <button class="hover:bg-gray-300 text-gray-800 font-bold py-1 px-2 text-sm transition-all-ease" data-product-id="${item.id}" data-change="1">+</button>
+                            <div class="flex gap-1 items-center" >
+                                <div class="inline-flex h-8 items-center space-x-2 border border-gray-300 rounded-md">
+                                    <button class="hover:bg-gray-100 text-gray-700 font-bold py-1 px-3 text-sm transition-colors duration-200 ease-in-out focus:outline-none focus:ring-2 focus:ring-gray-300 rounded-l-md" onclick="updateQuantity(${item.id}, -1)">-</button>
+                                    <span class="text-md  text-gray-900 px-2">${item.quantity}</span>
+                                    <button class="hover:bg-gray-100 text-gray-700 font-bold py-1 px-3 text-sm transition-colors duration-200 ease-in-out focus:outline-none focus:ring-2 focus:ring-gray-300 rounded-r-md" onclick="updateQuantity(${item.id}, 1)">+</button>
+                                </div>
+                                <div class="h-8 justify-center flex items-center border border-gray-300 rounded-md overflow-hidden">
+                                    <button class="text-red-500 w-8 h-full flex items-center justify-center hover:bg-red-50 hover:text-red-700 transition-all duration-200 ease-in-out focus:outline-none focus:ring-2 focus:ring-red-500 focus:ring-opacity-50" onclick="removeFromCart(${item.id})">
+                                        <i class="fas fa-times text-lg"></i>
+                                    </button>
+                                </div>
                             </div>
                             <p class="text-gray-600 text-sm">${itemTotal.toFixed(2)} JOD</p>
                         </div>
-                    </div>
-                    <div class="text-center self-start pt-1">
-                        <button class="text-red-500 hover:text-red-700 transition-all-ease" data-remove-id="${item.id}">
-                            <i class="fas fa-times"></i>
-                        </button>
                     </div>
                 </li>
             `;
@@ -115,43 +122,48 @@ function renderCartAside() {
     cartAsideTotalSpan.textContent = `${total.toFixed(2)} JOD`;
 
     // Re-attach event listeners for dynamically added buttons
-    attachCartItemEventListeners();
+    // Removed direct onclick, now using event delegation
+    // attachCartItemEventListeners(); // No longer needed if using global delegation or expose functions to window.
 }
 
 /**
  * Attaches event listeners to dynamically created cart item buttons
  * (remove, update quantity). This is called after `renderCartAside()`.
+ * NOTE: This function is being de-emphasized in favor of direct `onclick` calls
+ * for simpler management with globally exposed functions.
  */
-function attachCartItemEventListeners() {
-    // Event delegation for quantity and remove buttons within the cart aside
-    cartAsideItemsDiv.querySelectorAll('[data-product-id]').forEach(button => {
-        button.removeEventListener('click', handleCartItemAction); // Prevent duplicate listeners
-        button.addEventListener('click', handleCartItemAction);
-    });
-    cartAsideItemsDiv.querySelectorAll('[data-remove-id]').forEach(button => {
-        button.removeEventListener('click', handleCartItemAction); // Prevent duplicate listeners
-        button.addEventListener('click', handleCartItemAction);
-    });
-}
+// function attachCartItemEventListeners() {
+//     // Event delegation for quantity and remove buttons within the cart aside
+//     cartAsideItemsDiv.querySelectorAll('[data-product-id]').forEach(button => {
+//         button.removeEventListener('click', handleCartItemAction); // Prevent duplicate listeners
+//         button.addEventListener('click', handleCartItemAction);
+//     });
+//     cartAsideItemsDiv.querySelectorAll('[data-remove-id]').forEach(button => {
+//         button.removeEventListener('click', handleCartItemAction); // Prevent duplicate listeners
+//         button.addEventListener('click', handleCartItemAction);
+//     });
+// }
 
 /**
  * Handles clicks on quantity update and remove buttons in the cart aside.
  * Uses event delegation for efficiency.
+ * NOTE: This function is being de-emphasized in favor of direct `onclick` calls
+ * for simpler management with globally exposed functions.
  * @param {Event} event - The click event object.
  */
-function handleCartItemAction(event) {
-    const target = event.currentTarget;
-    const productId = target.dataset.productId || target.dataset.removeId;
+// function handleCartItemAction(event) {
+//     const target = event.currentTarget;
+//     const productId = target.dataset.productId || target.dataset.removeId;
 
-    if (productId) {
-        if (target.dataset.change) { // Quantity change button
-            const change = parseInt(target.dataset.change);
-            updateQuantity(parseInt(productId), change);
-        } else if (target.dataset.removeId) { // Remove button
-            removeFromCart(parseInt(productId));
-        }
-    }
-}
+//     if (productId) {
+//         if (target.dataset.change) { // Quantity change button
+//             const change = parseInt(target.dataset.change);
+//             updateQuantity(parseInt(productId), change);
+//         } else if (target.dataset.removeId) { // Remove button
+//             removeFromCart(parseInt(productId));
+//         }
+//     }
+// }
 
 
 // --- Cart Management Functions ---
@@ -186,11 +198,7 @@ function removeFromCart(productId) {
     saveCart();
     updateCartCount();
     renderCartAside();
-
-    // If on the full cart page, reload it to reflect changes (consider Livewire for this if appropriate)
-    if (window.location.pathname.includes('/cart')) {
-        window.location.reload();
-    }
+    // No window.location.reload() here anymore for /cart page.
     showMessageBox('Item removed from cart.', 'info');
 }
 
@@ -209,11 +217,9 @@ function updateQuantity(productId, change) {
             saveCart();
             renderCartAside();
         }
+        updateCartCount();
     }
-    // If on the full cart page, reload it to reflect changes
-    if (window.location.pathname.includes('/cart')) {
-        window.location.reload();
-    }
+    // No window.location.reload() here anymore for /cart page.
 }
 
 
@@ -330,14 +336,9 @@ window.addToCart = addToCart;
 window.removeFromCart = removeFromCart;
 window.updateQuantity = updateQuantity;
 window.showCartAside = showCartAside;
-window.hideCartAside = hideCartAside; // Renamed from window.hideMessageBox
+window.hideCartAside = hideCartAside;
 window.showMessageBox = showMessageBox;
-window.cart = cart;
-
-// window.hideMessageBox is effectively replaced by Toastify's auto-dismissal
-// If old code still calls it, keep a no-op or remove calls:
-// window.hideMessageBox = () => console.warn("hideMessageBox is deprecated. Toastify handles its own dismissal.");
-
+window.cart = cart; // Expose the cart for cart.blade.php to read directly
 
 let scrollTimeout;
 

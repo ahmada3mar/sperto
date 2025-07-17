@@ -17,7 +17,7 @@
 
 
     </div>
-    <div class="p-5 pt-6" >
+    <div class="p-5 pt-6 mt-auto" >
         <div class="flex justify-between items-center mt-2 pt-4 border-t border-gray-200">
             <span class="text-lg text-gray-800">Subtotal:</span>
             <span id="cart-aside-total" class="text-lg text-gray-800">$0.00</span>

@@ -36,7 +36,7 @@
     <div id="page-wrapper" class="relative">
         <div class="main">
             <div class="flex flex-col h-full">
-                <main class="pt-20 pb-8"> {{-- Padding top to account for fixed header --}}
+                <main class="pt-20"> {{-- Padding top to account for fixed header --}}
                     @yield('content')
                 </main>
 

@@ -66,7 +66,9 @@ function showMessageBox(message, type = 'info') {
             background: backgroundColor,
             borderRadius: "5px",
             fontSize: "1rem",
-            padding: "12px 20px"
+            padding: "12px 20px",
+            maxWidth:'300px',
+            display:'flex'
         },
         onClick: function () { }
     }).showToast();
@@ -330,6 +332,8 @@ window.updateQuantity = updateQuantity;
 window.showCartAside = showCartAside;
 window.hideCartAside = hideCartAside; // Renamed from window.hideMessageBox
 window.showMessageBox = showMessageBox;
+window.cart = cart;
+
 // window.hideMessageBox is effectively replaced by Toastify's auto-dismissal
 // If old code still calls it, keep a no-op or remove calls:
 // window.hideMessageBox = () => console.warn("hideMessageBox is deprecated. Toastify handles its own dismissal.");

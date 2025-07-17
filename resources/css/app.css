@@ -188,3 +188,19 @@ input[type="range"]:hover::-moz-range-thumb {
     background-color: rgb(197, 48, 48, 1);
 
 }
+
+.peer:checked ~ .delivery::before {
+    content: '';
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    width: 0px;
+    height: 0px;
+    border: 8px solid transparent;
+    border-top-color: red ;
+    border-right-color: red ;
+}
+
+input:focus{
+    border-color: red;
+}

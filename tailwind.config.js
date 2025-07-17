@@ -25,6 +25,9 @@ module.exports = {
                 },
                 // You can add other custom colors here as well
             },
+            pseudo: { // Or `variants` if using older Tailwind 2.x
+                'after': ['hover', 'focus'],
+            },
         },
     },
     plugins: [

@@ -5,7 +5,7 @@
 @section('content')
     <section id="cart-page" class="container mx-auto px-4 py-8 md:py-12">
         <h1 class="text-3xl md:text-4xl font-extrabold text-gray-900 mb-8 text-center">Your Cart</h1>
-        <div class="bg-white rounded-lg  p-6 md:p-8">
+        <div class="bg-white rounded-lg shadow-lg p-6 md:p-8"> {{-- Added back shadow for consistency --}}
             <div id="cart-items" class="divide-y divide-gray-200">
             </div>
             <div id="empty-cart-message" class="text-center text-gray-500 py-8 hidden">
@@ -20,7 +20,7 @@
             <div class="mt-8 text-right">
                 <a href="{{ route('checkout') }}" id="proceed-to-checkout-btn"
                     class="inline-flex items-center bg-primary-500 hover:bg-primary-700 text-white
-                font-bold py-3 px-6 rounded-md  transition-all duration-200 ease-in-out
+                font-bold py-3 px-6 rounded-md shadow-lg transition-all duration-200 ease-in-out {{-- Added back shadow --}}
                 focus:outline-none focus:ring-2 focus:ring-primary-500 focus:ring-opacity-75">
                     Proceed to Checkout <i class="fas fa-arrow-right ml-2"></i>
                 </a>
@@ -42,6 +42,13 @@
             let total = 0;
 
             // Access the global cart from app.js directly via window.cart
+            // Ensure window.cart is up-to-date from localStorage (though app.js should handle this)
+            // It's safer to re-parse from localStorage if app.js might not always be instantly synced
+            // If window.cart itself is directly mutated by app.js, this might not be strictly needed,
+            // but it acts as a safeguard.
+            let currentCart = JSON.parse(localStorage.getItem('cart')) || [];
+            window.cart = currentCart; // Ensure the global window.cart reference is up-to-date
+
             if (!window.cart || window.cart.length === 0) {
                 emptyCartMessageDiv.classList.remove('hidden');
                 proceedToCheckoutBtn.classList.add('opacity-50', 'cursor-not-allowed'); // Visually disable
@@ -94,8 +101,18 @@
         // Initial render of the full cart page when the DOM is loaded
         document.addEventListener('DOMContentLoaded', renderFullCartPage);
 
-        // IMPORTANT: Removed the dummy updateQuantity, removeFromCart, saveCart, and updateCartCount
-        // from here. They are now solely managed by app.js and exposed globally.
-        // This ensures a single source of truth for cart operations.
+        // --- IMPORTANT: REMOVE ALL "DUMMY" CART FUNCTIONS FROM HERE ---
+        // updateQuantity, removeFromCart, saveCart, and updateCartCount
+        // are now defined and exposed globally by your app.js.
+        // Having them here creates a local scope that overrides the global ones
+        // for the dynamically generated HTML, causing inconsistencies.
+        // DELETE the following lines (if they are still in your file):
+        /*
+        function updateQuantity(itemId, change) { ... }
+        function removeFromCart(itemId) { ... }
+        if (typeof saveCart === 'undefined') { ... }
+        if (typeof updateCartCount === 'undefined') { ... }
+        */
+
     </script>
 @endsection

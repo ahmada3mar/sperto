@@ -1,7 +1,7 @@
 <div class="block md:hidden main bg-white shadow-sm pb-2 pt-4 px-2 fixed w-full z-30 bottom-0">
     <nav class="grid grid-cols-5 gap-2 items-center justify-between ">
         <a href="{{ route('home') }}"
-            class="flex p-2 rounded-md
+            class="flex p-2 rounded-md hover:bg-primary-100
         {{ Route::is('home') ? 'bg-primary text-white' : 'text-gray-600' }}
         flex-col items-center hover:text-gray-900 transition-all-ease focus:outline-none">
             <i class="fas fa-home text-xl"></i>
@@ -15,14 +15,14 @@
             Search
         </button>
         <a href="{{ route('products.index') }}"
-            class="flex flex-col p-2 items-center rounded-md
+            class="flex flex-col p-2 items-center rounded-md hover:bg-primary-100
         {{ Route::is('products.index') ? 'bg-primary text-white' : 'text-gray-600' }}
          hover:text-gray-900 transition-all-ease focus:outline-none">
             <i class="fas fa-grip text-xl"></i>
             Shop
         </a>
         <button
-            class="relative flex flex-col items-center p-2 rounded-md
+            class="relative flex flex-col items-center p-2 rounded-md hover:bg-primary-100
             {{ Route::is('cart') ? 'bg-primary text-white' : 'text-gray-600' }}
              hover:text-gray-900 transition-all-ease focus:outline-none"
             data-open-cart-aside>
@@ -37,7 +37,7 @@
             Cart
         </button>
         <button
-            class="flex flex-col items-center p-2 rounded-md
+            class="flex flex-col items-center p-2 rounded-md hover:bg-primary-100
         {{ Route::is('account') ? 'bg-primary text-white' : 'text-gray-600' }}
          hover:text-gray-900 transition-all-ease focus:outline-none">
             <i class="fas fa-user text-xl"></i>

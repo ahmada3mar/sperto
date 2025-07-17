@@ -24,7 +24,7 @@
 {{-- Adjusted height, added padding, deeper primary color, larger shadow --}}
 <header class="bg-primary-500 main shadow-lg p-5 fixed h-20 w-full z-50 top-0">
     {{-- Inner container for alignment --}}
-    <div class="container mx-auto flex justify-between items-center h-full">
+    <div class="container mx-auto flex justify-between items-center flex-row-reverse md:flex-row h-full">
 
         {{-- Logo - Moved to the left for standard layout --}}
         <a href="{{ route('home') }}" class="flex-shrink-0">
@@ -52,12 +52,12 @@
         {{-- Right-hand Icons (User, Cart) --}}
         <div class="flex items-center space-x-6 md:space-x-8 flex-shrink-0"> {{-- Space between icons, prevents shrinking --}}
             {{-- User Icon --}}
-            <button class="relative text-white hover:text-primary-200 transition-colors duration-200 ease-in-out focus:outline-none focus:ring-2 focus:ring-primary-300 rounded-full p-1"> {{-- Added padding, rounded focus ring --}}
+            <button class="relative hidden md:block text-white hover:text-primary-200 transition-colors duration-200 ease-in-out focus:outline-none focus:ring-2 focus:ring-primary-300 rounded-full p-1"> {{-- Added padding, rounded focus ring --}}
                 <i class="fa-solid fa-user text-xl md:text-2xl"></i> {{-- Slightly adjusted icon size --}}
             </button>
 
             {{-- Cart Button --}}
-            <button class="relative text-white hover:text-primary-200 transition-colors duration-200 ease-in-out focus:outline-none focus:ring-2 focus:ring-primary-300 rounded-full p-1" data-open-cart-aside> {{-- Added padding, rounded focus ring --}}
+            <button class="relative hidden md:block text-white hover:text-primary-200 transition-colors duration-200 ease-in-out focus:outline-none focus:ring-2 focus:ring-primary-300 rounded-full p-1" data-open-cart-aside> {{-- Added padding, rounded focus ring --}}
                 <i class="fas fa-shopping-cart text-xl md:text-2xl"></i> {{-- Slightly adjusted icon size --}}
                 {{-- Cart count: Brighter background, slightly larger, bolder text --}}
                 <span class="cart-count absolute -top-2 -right-2 bg-yellow-300 text-primary-800 text-xs font-extrabold rounded-full h-5 w-5 flex items-center justify-center">0</span>

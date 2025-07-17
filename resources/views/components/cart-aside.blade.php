@@ -1,4 +1,4 @@
-<div class="cart-popup widget_shopping_cart cart-canvas canvas-container" id="cart-aside">
+<div class="cart-popup widget_shopping_cart md:max-w-96 cart-canvas canvas-container" id="cart-aside">
     <div class="cart-canvas-header">
         <div class="text-md">Shopping Cart</div>
         {{-- REMOVED Livewire.dispatch, now uses data-close-cart-aside for JS event delegation --}}

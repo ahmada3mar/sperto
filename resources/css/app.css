@@ -70,7 +70,6 @@ input[type="range"]:hover::-moz-range-thumb {
     top: 0;
     right: -100%;
     width: 100%;
-    max-width: 400px;
     height: 100%;
     background: #fff;
     box-shadow: -2px 0 10px rgba(0, 0, 0, 0.2);

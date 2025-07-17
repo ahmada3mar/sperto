@@ -1,5 +1,3 @@
-{{-- resources/views/partials/creative_category_grid.blade.php --}}
-
 <section class="container mx-auto px-4 py-8">
     <h2 class="text-3xl font-bold text-gray-800 mb-6 text-center">Featured Categories</h2>
 
@@ -37,14 +35,15 @@
                 ],
             ];
         @endphp
-
         @foreach ($categories as $index => $category)
             <div class="relative overflow-hidden group rounded-md shadow-md
                         {{ $category['classes'] }}
-
+                        {{-- Add aspect ratio for consistent height on mobile and regular items --}}
+                        aspect-w-16 aspect-h-9 md:aspect-w-auto md:aspect-h-auto
             ">
-                <a href="{{ $category['link'] }}" class="block w-full h-full">
-                    <img src="{{ $category['image'] }}" alt="{{ $category['name'] }}" class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105">
+                <a href="{{ $category['link'] }}" class="absolute inset-0 block w-full h-full"> {{-- Make the anchor fill the entire container --}}
+                    <img src="{{ $category['image'] }}" alt="{{ $category['name'] }}"
+                         class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105">
                     <div class="absolute inset-0 bg-black/40 flex flex-col items-center justify-center text-white p-4 opacity-100 group-hover:opacity-100 transition-opacity duration-300">
                         <h3 class="text-2xl font-bold mb-2 text-center">{{ $category['name'] }}</h3>
                         <p class="text-sm text-gray-200 mb-4">{{ $category['product_count'] }} Products</p>
